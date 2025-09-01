@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        // Enable all strict type checking options
+        "strict": true,
+        // Target the latest ECMAScript features
+        "target": "ESNext",
+        // Use Node.js module resolution for ESM compatibility
+        "module": "NodeNext",
+        // Output compiled files to the dist-electron directory
+        "outDir": "../../dist-electron",
+        // Skip type checking of declaration files for faster builds
+        "skipLibCheck": true
+    },
+    // // Include all TypeScript files in the current directory
+    // "include": ["."]
+}
