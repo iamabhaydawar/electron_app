@@ -6,15 +6,15 @@
   "main": "dist-electron/main.js",
   "scripts": {
     "dev:react": "vite",
-    "dev:electron": "npm run transpile:electron && electron .",
+    "dev:electron": "npm run transpile:electron && NODE_ENV=development electron .",
     "dev": "concurrently \"npm run dev:react\" \"wait-on http://localhost:5173 && npm run dev:electron\"",
     "build": "npm run transpile:electron && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "transpile:electron": "tsc --project src/electron/tsconfig.json",
-    "dist:mac":"npm run transpile:electron && npm run build && electron-builder --mac --arm64",
-    "dist:win":"npm run transpile:electron && npm run build && electron-builder --win --x64",
-    "dist:linux":"npm run transpile:electron && npm run build && electron-builder --linux --x64"
+    "dist:mac": "npm run transpile:electron && npm run build && electron-builder --mac --arm64",
+    "dist:win": "npm run transpile:electron && npm run build && electron-builder --win --x64",
+    "dist:linux": "npm run transpile:electron && npm run build && electron-builder --linux --x64"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -26,6 +26,7 @@
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
     "concurrently": "^9.2.1",
+    "cross-env": "^10.0.0",
     "electron": "^37.4.0",
     "electron-builder": "^26.0.12",
     "eslint": "^9.33.0",

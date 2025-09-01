@@ -7,5 +7,9 @@ export default defineConfig({
   build: {
     outDir: 'dist-react',
   },
+  server: {
+    port: 5173,
+    strictPort: true,
+  },
   base: './', // This is crucial for Electron - use relative paths
 })
