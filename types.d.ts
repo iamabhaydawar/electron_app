@@ -14,10 +14,13 @@ export type EventPayloadMapping = {
     statistics:Statistics,
     getStaticData:StaticData,
 }
+
+export type Unsubscribe = () => void;
+
 declare global {
   interface Window {
     electron: {
-      subscribeStatistics: (callback: (statistics: Statistics) => void) => void,
+      subscribeStatistics: (callback: (statistics: Statistics) => void) => Unsubscribe,
       getStaticData: () => Promise<StaticData>
     }
   }
