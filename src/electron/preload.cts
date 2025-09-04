@@ -1,11 +1,25 @@
 const electron = require('electron');
+import { EventPayloadMapping } from '../../types.js';
 
 
 electron.contextBridge.exposeInMainWorld('electron', {
-    subscribeStatistics: (callback: (statistics: any) => void) => { 
-        electron.ipcRenderer.on('statistics', (_: any, stats: any) => {
-            callback(stats);
-        });
-    },
-    getStaticData: () => electron.ipcRenderer.invoke("getStaticData"),
-});
+  subscribeStatistics: (callback) => {
+    ipcOn('statistics', (stats) => {
+      callback(stats);
+    });
+  },
+  getStaticData: () => ipcInvoke('getStaticData'),
+} satisfies Window['electron']);
+
+function ipcInvoke<Key extends keyof EventPayloadMapping>(
+  key: Key
+): Promise<EventPayloadMapping[Key]> {
+  return electron.ipcRenderer.invoke(key);
+}
+
+function ipcOn<Key extends keyof EventPayloadMapping>(
+  key: Key,
+  callback: (payload: EventPayloadMapping[Key]) => void
+) {
+  electron.ipcRenderer.on(key, (_:any, payload:any) => callback(payload));
+}

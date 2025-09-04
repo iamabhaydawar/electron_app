@@ -9,7 +9,9 @@
         // Output compiled files to the dist-electron directory
         "outDir": "../../dist-electron",
         // Skip type checking of declaration files for faster builds
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        //add global types
+        "types": ["../../types.d.ts"]
     },
     // // Include all TypeScript files in the current directory
     // "include": ["."]

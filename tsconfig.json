@@ -4,5 +4,31 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "exclude": ["src/electron"]
+  "exclude": ["src/electron"],
+  
+  "compilerOptions": {
+    /* Project-wide settings */
+    "types":["./types"],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    
+    /* Performance */
+    "incremental": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
+    
+    /* Module resolution */
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    
+    /* Type checking */
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  }
 }
