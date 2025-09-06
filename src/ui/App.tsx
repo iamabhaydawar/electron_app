@@ -12,7 +12,7 @@ function App() {
   return (
     
     <div className='App'>
-      <div style={{height:120}}>
+      <div style={{height:120}}> 
           <Chart data={cpuUsages} maxDataPoints={10}/>
       </div>
       <div>
