@@ -7,6 +7,8 @@ import { getPreloadPath } from './pathResolver.js';
 
 import { createTray } from './tray.js';
 import { createMenu } from './menu.js';
+
+
 app.on('ready', () => {
     const mainWindow = new BrowserWindow({
       webPreferences: {
